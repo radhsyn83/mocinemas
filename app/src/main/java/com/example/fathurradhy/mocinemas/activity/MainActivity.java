@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import com.example.fathurradhy.mocinemas.R;
 import com.example.fathurradhy.mocinemas.adapter.ViewPagerAdapter;
 import com.example.fathurradhy.mocinemas.fragment.ComingSoonActivity;
-import com.example.fathurradhy.mocinemas.fragment.NoewPlayingFragment;
+import com.example.fathurradhy.mocinemas.fragment.NowPlayingFragment;
 import com.example.fathurradhy.mocinemas.utils.BottomNavigationHelper;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity{
 
     private void setupViewPager(ViewPager viewPager) {
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        NoewPlayingFragment nowPlaying = new NoewPlayingFragment();
+        NowPlayingFragment nowPlaying = new NowPlayingFragment();
         ComingSoonActivity comingSoon = new ComingSoonActivity();
         mViewPagerAdapter.addFragment(nowPlaying);
         mViewPagerAdapter.addFragment(comingSoon);

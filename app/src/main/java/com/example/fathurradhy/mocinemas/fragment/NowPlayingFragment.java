@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.fathurradhy.mocinemas.R;
-import com.example.fathurradhy.mocinemas.activity.MainActivity;
 import com.example.fathurradhy.mocinemas.adapter.MoviesAdapter;
 import com.example.fathurradhy.mocinemas.domain.model.movies.MoviesModel;
 import com.example.fathurradhy.mocinemas.domain.model.movies.MoviesModelResult;
@@ -26,7 +25,7 @@ import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.util.List;
 
-public class NoewPlayingFragment extends Fragment {
+public class NowPlayingFragment extends Fragment {
 
     private MaterialSearchView mSearchView;
     private RecyclerView mRecycleView;
@@ -71,7 +70,7 @@ public class NoewPlayingFragment extends Fragment {
                 Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
                 Log.e("RETROFIT", msg);
             }
-        }).getPopular(SupportVariable.API_KEY);
+        }).getNowPlaying(SupportVariable.API_KEY);
     }
 
     private void setRecyclerView(List<MoviesModelResult> list) {

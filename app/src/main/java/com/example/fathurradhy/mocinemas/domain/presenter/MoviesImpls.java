@@ -25,8 +25,39 @@ public class MoviesImpls implements MoviesPresenter {
     }
 
     @Override
-    public void getPopular(String api) {
-        Call<MoviesModel> call = Config.getApi().getPopularList(api);
+    public void getNowPlaying(String api) {
+        Call<MoviesModel> call = Config.getApi().getNowPlaying(api);
+        call.enqueue( new Callback<MoviesModel>() {
+            @Override
+            public void onResponse(Call<MoviesModel> call, Response<MoviesModel> response) {
+                if (response.isSuccessful()) {
+                    mView.onSuccess(response.body());
+                } else {
+                    mView.onFailed(mContext.getString(R.string.something_went_wrong));
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MoviesModel> call, Throwable t) {
+                String message = "";
+
+                if (t instanceof SocketTimeoutException) {
+                    message = mContext.getResources().getString(R.string.rto);
+                } else if (t instanceof ConnectException) {
+                    message = mContext.getResources().getString(R.string.no_internet);
+                } else {
+                    if (t.getMessage() != null)
+                        message = t.getMessage();
+                }
+
+                mView.onFailed(message);
+            }
+        });
+    }
+
+    @Override
+    public void getComingSoon(String api) {
+        Call<MoviesModel> call = Config.getApi().getComingSoon(api);
         call.enqueue( new Callback<MoviesModel>() {
             @Override
             public void onResponse(Call<MoviesModel> call, Response<MoviesModel> response) {
