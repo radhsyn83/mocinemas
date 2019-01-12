@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_now_playing"
+        android:icon="@drawable/ic_playing_now"
+        android:title="@string/playing_now"/>
+
+    <item
+        android:id="@+id/action_coming_soon"
+        android:icon="@drawable/ic_comingsoon"
+        android:title="@string/coming_soon"/>
+</menu>
