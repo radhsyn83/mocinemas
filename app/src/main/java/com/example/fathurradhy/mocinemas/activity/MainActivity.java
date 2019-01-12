@@ -2,6 +2,7 @@ package com.example.fathurradhy.mocinemas.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
@@ -93,5 +94,15 @@ public class MainActivity extends AppCompatActivity{
         mSearchView.setMenuItem(item);
 
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_language){
+            Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+            startActivity(mIntent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

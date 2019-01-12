@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mocinemas</string>
+    <string name="something_went_wrong">Terjadi gangguan, coba lagi</string>
+    <string name="rto">Waktu permintaan habis</string>
+    <string name="no_internet">Tidak ada internet</string>
+    <string name="menu_search">Cari</string>
+    <string name="rating">Rating: </string>
+
+    <string name="overview">Deskripsi</string>
+    <string name="playing_now">Tayang Sekarang</string>
+    <string name="coming_soon">Akan Datang</string>
+    <string name="settings">Pengaturan</string>
+</resources>
