@@ -77,15 +77,15 @@ public class DetailActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_overview)).setText(data.getOverview());
 
         Glide.with(this)
-                .load("https://image.tmdb.org/t/p/w500"+data.getPosterPath())
+                .load(BuildConfig.IMG_URL+data.getPosterPath())
                 .into(((ImageView) findViewById(R.id.iv_background)));
 
         Glide.with(this)
-                .load("https://image.tmdb.org/t/p/w500"+data.getPosterPath())
+                .load(BuildConfig.IMG_URL+data.getPosterPath())
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                        Toast.makeText(DetailActivity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailActivity.this, getResources().getString(R.string.something_went_wrong), Toast.LENGTH_SHORT).show();
                         finish();
                         return false;
                     }
