@@ -1,16 +1,13 @@
 package com.example.fathurradhy.mocinemas.utils;
 
-import android.support.design.bottomnavigation.LabelVisibilityMode;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.internal.BottomNavigationMenuView;
-import android.support.design.widget.BottomNavigationView;
 import android.util.Log;
 
-import java.lang.reflect.Field;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 
-/**
- * Created by andiisfh on 18/08/17.
- */
+import java.lang.reflect.Field;
 
 public class BottomNavigationHelper {
 

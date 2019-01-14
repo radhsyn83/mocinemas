@@ -3,11 +3,6 @@ package com.example.fathurradhy.mocinemas.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,13 +11,16 @@ import com.example.fathurradhy.mocinemas.adapter.ViewPagerAdapter;
 import com.example.fathurradhy.mocinemas.fragment.ComingSoonActivity;
 import com.example.fathurradhy.mocinemas.fragment.NowPlayingFragment;
 import com.example.fathurradhy.mocinemas.utils.BottomNavigationHelper;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity{
     private MaterialSearchView mSearchView;
     private ViewPager mViewPager;
-    private BottomNavigationView mBottomNavigationView;
-    private ViewPagerAdapter mViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,21 +51,18 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
-        mBottomNavigationView = findViewById(R.id.bottomNavigation);
+        BottomNavigationView mBottomNavigationView = findViewById(R.id.bottomNavigation);
         BottomNavigationHelper.removeShiftMode(mBottomNavigationView);
-        mBottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()) {
-                    case R.id.action_now_playing:
-                        mViewPager.setCurrentItem(0);
-                        break;
-                    case R.id.action_coming_soon:
-                        mViewPager.setCurrentItem(1);
-                        break;
-                }
-                return false;
+        mBottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.action_now_playing:
+                    mViewPager.setCurrentItem(0);
+                    return true;
+                case R.id.action_coming_soon:
+                    mViewPager.setCurrentItem(1);
+                    return true;
             }
+            return false;
         });
 
         mViewPager = findViewById(R.id.view_pager);
@@ -76,7 +71,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        ViewPagerAdapter mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         NowPlayingFragment nowPlaying = new NowPlayingFragment();
         ComingSoonActivity comingSoon = new ComingSoonActivity();
         mViewPagerAdapter.addFragment(nowPlaying);

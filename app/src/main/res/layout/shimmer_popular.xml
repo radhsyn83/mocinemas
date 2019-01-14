@@ -5,84 +5,10 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <View
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:scaleType="centerCrop"
-            android:background="@color/overlay_dark_30"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <android.support.v7.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="24dp"
-                android:layout_below="@id/iv_poster"
-                app:cardBackgroundColor="@color/overlay_dark_30"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="22dp"
-                android:layout_marginTop="6dp"
-                android:layout_below="@id/iv_poster"
-                app:cardBackgroundColor="@color/overlay_dark_30"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-        <View
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:scaleType="centerCrop"
-            android:background="@color/overlay_dark_30"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <android.support.v7.widget.CardView
-                android:layout_width="80dp"
-                android:layout_height="24dp"
-                android:layout_below="@id/iv_poster"
-                app:cardBackgroundColor="@color/overlay_dark_30"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="100dp"
-                android:layout_height="22dp"
-                android:layout_marginTop="6dp"
-                android:layout_below="@id/iv_poster"
-                app:cardBackgroundColor="@color/overlay_dark_30"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-</LinearLayout>
-    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -90,7 +16,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
             <View
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="centerCrop"
@@ -100,22 +26,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="80dp"
                     android:layout_height="24dp"
-                    android:layout_below="@id/iv_poster"
                     app:cardBackgroundColor="@color/overlay_dark_30"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"/>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="22dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_below="@id/iv_poster"
+                    android:layout_marginTop="@dimen/margin_small"
                     app:cardBackgroundColor="@color/overlay_dark_30"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"/>
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -124,7 +48,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
             <View
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="centerCrop"
@@ -134,22 +58,92 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="80dp"
                     android:layout_height="24dp"
-                    android:layout_below="@id/iv_poster"
                     app:cardBackgroundColor="@color/overlay_dark_30"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"/>
 
-                <android.support.v7.widget.CardView
+                <androidx.cardview.widget.CardView
                     android:layout_width="100dp"
                     android:layout_height="22dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_below="@id/iv_poster"
+                    android:layout_marginTop="@dimen/margin_small"
                     app:cardBackgroundColor="@color/overlay_dark_30"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"/>
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <View
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:background="@color/overlay_dark_30"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="24dp"
+                    app:cardBackgroundColor="@color/overlay_dark_30"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:cardBackgroundColor="@color/overlay_dark_30"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"/>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <View
+                android:layout_margin="@dimen/margin_medium"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="centerCrop"
+                android:background="@color/overlay_dark_30"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="24dp"
+                    app:cardBackgroundColor="@color/overlay_dark_30"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="22dp"
+                    android:layout_marginTop="@dimen/margin_small"
+                    app:cardBackgroundColor="@color/overlay_dark_30"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"/>
             </LinearLayout>
         </LinearLayout>
 

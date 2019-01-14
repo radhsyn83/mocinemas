@@ -2,10 +2,10 @@
 package com.example.fathurradhy.mocinemas.activity;
 
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,12 +16,14 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.example.fathurradhy.mocinemas.BuildConfig;
 import com.example.fathurradhy.mocinemas.R;
 import com.example.fathurradhy.mocinemas.domain.model.detail.DetailModel;
 import com.example.fathurradhy.mocinemas.domain.presenter.DetailImpls;
 import com.example.fathurradhy.mocinemas.domain.view.DefaultView;
-import com.example.fathurradhy.mocinemas.utils.SupportVariable;
 import com.facebook.shimmer.ShimmerFrameLayout;
+
+import java.util.Objects;
 
 public class DetailActivity extends AppCompatActivity {
     private String id;
@@ -46,7 +48,7 @@ public class DetailActivity extends AppCompatActivity {
         toolbar.setTitle(getIntent().getStringExtra("title"));
 
         final Drawable upArrow = getResources().getDrawable(R.drawable.ic_arrow_back_black_24dp);
-        getSupportActionBar().setHomeAsUpIndicator(upArrow);
+        Objects.requireNonNull(getSupportActionBar()).setHomeAsUpIndicator(upArrow);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -65,13 +67,13 @@ public class DetailActivity extends AppCompatActivity {
             public void onFailed(String msg) {
 
             }
-        }).getDetail(id, SupportVariable.API_KEY);
+        }).getDetail(id, BuildConfig.API_KEY);
     }
 
     private void setForm(DetailModel data) {
         ((TextView) findViewById(R.id.tv_title)).setText(data.getTitle());
         ((TextView) findViewById(R.id.tv_rating)).setText(data.getVoteAverage());
-        ((TextView) findViewById(R.id.tv_duration)).setText(data.getRuntime()+" Min");
+        ((TextView) findViewById(R.id.tv_duration)).setText(getResources().getString(R.string.duration, data.getRuntime()));
         ((TextView) findViewById(R.id.tv_overview)).setText(data.getOverview());
 
         Glide.with(this)
@@ -97,16 +99,16 @@ public class DetailActivity extends AppCompatActivity {
                 })
                 .into(((ImageView) findViewById(R.id.iv_poster)));
 
-        String genre = "";
+        StringBuilder genre = new StringBuilder();
 
         for (int i = 0; i < data.getGenres().size(); i++) {
             if (i == 0)
-                genre += data.getGenres().get(i).getName();
+                genre.append(data.getGenres().get(i).getName());
             else
-                genre += ", " + data.getGenres().get(i).getName();
+                genre.append(", ").append(data.getGenres().get(i).getName());
         }
 
-        ((TextView) findViewById(R.id.tv_genre)).setText(genre);
+        ((TextView) findViewById(R.id.tv_genre)).setText(genre.toString());
 
 
     }

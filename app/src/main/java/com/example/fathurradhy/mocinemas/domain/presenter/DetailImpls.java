@@ -4,13 +4,13 @@ import android.content.Context;
 
 import com.example.fathurradhy.mocinemas.R;
 import com.example.fathurradhy.mocinemas.domain.model.detail.DetailModel;
-import com.example.fathurradhy.mocinemas.domain.model.movies.MoviesModel;
 import com.example.fathurradhy.mocinemas.domain.view.DefaultView;
 import com.example.fathurradhy.mocinemas.net.Config;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 
+import androidx.annotation.NonNull;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,7 +30,7 @@ public class DetailImpls implements DetailPresenter {
         Call<DetailModel> call = Config.getApi().getDetail(id, api);
         call.enqueue(new Callback<DetailModel>() {
             @Override
-            public void onResponse(Call<DetailModel> call, Response<DetailModel> response) {
+            public void onResponse(@NonNull Call<DetailModel> call, @NonNull Response<DetailModel> response) {
                 if (response.isSuccessful()) {
                     mView.onSuccess(response.body());
                 } else {
@@ -39,7 +39,7 @@ public class DetailImpls implements DetailPresenter {
             }
 
             @Override
-            public void onFailure(Call<DetailModel> call, Throwable t) {
+            public void onFailure(@NonNull Call<DetailModel> call, Throwable t) {
                 String message = "";
 
                 if (t instanceof SocketTimeoutException) {

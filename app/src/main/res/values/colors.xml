@@ -43,4 +43,6 @@
     <color name="color_warning_press">#cead50</color>
     <color name="color_danger">#FF6C60</color>
     <color name="color_danger_press">#de5e54</color>
+
+    <color name="shimmer_bg">#ea21282e</color>
 </resources>

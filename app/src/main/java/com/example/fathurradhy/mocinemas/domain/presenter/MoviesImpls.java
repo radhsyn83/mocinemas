@@ -10,6 +10,7 @@ import com.example.fathurradhy.mocinemas.net.Config;
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 
+import androidx.annotation.NonNull;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,7 +30,7 @@ public class MoviesImpls implements MoviesPresenter {
         Call<MoviesModel> call = Config.getApi().getNowPlaying(api);
         call.enqueue( new Callback<MoviesModel>() {
             @Override
-            public void onResponse(Call<MoviesModel> call, Response<MoviesModel> response) {
+            public void onResponse(@NonNull Call<MoviesModel> call, @NonNull Response<MoviesModel> response) {
                 if (response.isSuccessful()) {
                     mView.onSuccess(response.body());
                 } else {
@@ -38,7 +39,7 @@ public class MoviesImpls implements MoviesPresenter {
             }
 
             @Override
-            public void onFailure(Call<MoviesModel> call, Throwable t) {
+            public void onFailure(@NonNull Call<MoviesModel> call, @NonNull Throwable t) {
                 String message = "";
 
                 if (t instanceof SocketTimeoutException) {
@@ -60,7 +61,7 @@ public class MoviesImpls implements MoviesPresenter {
         Call<MoviesModel> call = Config.getApi().getComingSoon(api);
         call.enqueue( new Callback<MoviesModel>() {
             @Override
-            public void onResponse(Call<MoviesModel> call, Response<MoviesModel> response) {
+            public void onResponse(@NonNull Call<MoviesModel> call, @NonNull Response<MoviesModel> response) {
                 if (response.isSuccessful()) {
                     mView.onSuccess(response.body());
                 } else {
@@ -69,7 +70,7 @@ public class MoviesImpls implements MoviesPresenter {
             }
 
             @Override
-            public void onFailure(Call<MoviesModel> call, Throwable t) {
+            public void onFailure(@NonNull Call<MoviesModel> call, @NonNull Throwable t) {
                 String message = "";
 
                 if (t instanceof SocketTimeoutException) {
@@ -91,7 +92,7 @@ public class MoviesImpls implements MoviesPresenter {
         Call<MoviesModel> call = Config.getApi().getSearch(api, query);
         call.enqueue( new Callback<MoviesModel>() {
             @Override
-            public void onResponse(Call<MoviesModel> call, Response<MoviesModel> response) {
+            public void onResponse(@NonNull Call<MoviesModel> call, @NonNull Response<MoviesModel> response) {
                 if (response.isSuccessful()) {
                     mView.onSuccess(response.body());
                 } else {
@@ -100,7 +101,7 @@ public class MoviesImpls implements MoviesPresenter {
             }
 
             @Override
-            public void onFailure(Call<MoviesModel> call, Throwable t) {
+            public void onFailure(@NonNull Call<MoviesModel> call, @NonNull Throwable t) {
                 String message = "";
 
                 if (t instanceof SocketTimeoutException) {

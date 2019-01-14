@@ -16,22 +16,22 @@ public class DetailModel {
 
     @SerializedName("title")
     @Expose
+    private
     String title;
 
     @SerializedName("status")
     @Expose
+    private
     String status;
-
-    @SerializedName("release_date")
-    @Expose
-    String releaseDate;
 
     @SerializedName("runtime")
     @Expose
+    private
     String runtime;
 
     @SerializedName("overview")
     @Expose
+    private
     String overview;
 
     @SerializedName("genres")
@@ -42,16 +42,8 @@ public class DetailModel {
         return posterPath;
     }
 
-    public void setPosterPath(String posterPath) {
-        this.posterPath = posterPath;
-    }
-
     public String getVoteAverage() {
         return voteAverage;
-    }
-
-    public void setVoteAverage(String voteAverage) {
-        this.voteAverage = voteAverage;
     }
 
     public String getTitle() {
@@ -68,14 +60,6 @@ public class DetailModel {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
     }
 
     public String getRuntime() {
@@ -98,7 +82,4 @@ public class DetailModel {
         return genres;
     }
 
-    public void setGenres(List<DetailModelGenre> genres) {
-        this.genres = genres;
-    }
 }

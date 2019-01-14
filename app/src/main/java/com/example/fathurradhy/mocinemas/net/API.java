@@ -4,7 +4,6 @@ import com.example.fathurradhy.mocinemas.domain.model.detail.DetailModel;
 import com.example.fathurradhy.mocinemas.domain.model.movies.MoviesModel;
 
 import retrofit2.Call;
-import retrofit2.http.Field;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;

@@ -1,32 +1,28 @@
 package com.example.fathurradhy.mocinemas.adapter;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.util.SparseArray;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-/**
- * Created by andiisfh on 18/08/17.
- */
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
-    private Map<Integer,String> mFragmentTags;
-    private FragmentManager mFragmentManager;
+    private SparseArray<String> mFragmentTags;
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
 
     public ViewPagerAdapter(FragmentManager manager) {
         super(manager);
-        this.mFragmentManager = manager;
-        this.mFragmentTags = new HashMap<Integer, String>();
+        this.mFragmentTags = new SparseArray<>();
 
     }
 
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         return mFragmentList.get(position);
@@ -41,8 +37,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         mFragmentList.add(fragment);
     }
 
+    @NonNull
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, int position) {
         Object obj = super.instantiateItem(container,position);
         if (obj instanceof Fragment) {
             Fragment f = (Fragment) obj;
@@ -50,12 +47,5 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             mFragmentTags.put(position,tag);
         }
         return obj;
-    }
-
-    public Fragment getFragment(int position) {
-        String tag = mFragmentTags.get(position);
-        if ( tag == null )
-            return null;
-        return mFragmentManager.findFragmentByTag(tag);
     }
 }

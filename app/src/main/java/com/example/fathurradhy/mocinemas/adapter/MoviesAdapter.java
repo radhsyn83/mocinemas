@@ -2,18 +2,17 @@ package com.example.fathurradhy.mocinemas.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.fathurradhy.mocinemas.BuildConfig;
 import com.example.fathurradhy.mocinemas.R;
 import com.example.fathurradhy.mocinemas.activity.DetailActivity;
 import com.example.fathurradhy.mocinemas.domain.model.movies.MoviesModelResult;
@@ -37,22 +36,19 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(MoviesAdapter.ViewHolder holder, int i) {
+    public void onBindViewHolder(@NonNull MoviesAdapter.ViewHolder holder, int i) {
         final MoviesModelResult movie = mPopularList.get(i);
 
-        Glide.with(mContext).load("https://image.tmdb.org/t/p/w500"+mPopularList.get(i).getPosterPath()).into(holder.poster);
+        Glide.with(mContext).load(BuildConfig.IMG_URL +mPopularList.get(i).getPosterPath()).into(holder.poster);
         holder.title.setText(movie.getTitle());
         holder.rating.setText(movie.getVoteAverage());
 
-        holder.container.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(mContext, DetailActivity.class);
-                i.putExtra("id", movie.getId());
-                i.putExtra("title", movie.getTitle());
+        holder.container.setOnClickListener(v -> {
+            Intent i1 = new Intent(mContext, DetailActivity.class);
+            i1.putExtra("id", movie.getId());
+            i1.putExtra("title", movie.getTitle());
 
-                mContext.startActivity(i);
-            }
+            mContext.startActivity(i1);
         });
 
     }
@@ -62,13 +58,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         return mPopularList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
 
         private final ImageView poster;
         private final TextView title, rating;
         private final LinearLayout container;
 
-        public ViewHolder(View itemView) {
+        ViewHolder(View itemView) {
             super(itemView);
 
             poster = itemView.findViewById(R.id.iv_poster);

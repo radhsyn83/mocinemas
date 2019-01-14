@@ -1,6 +1,6 @@
 package com.example.fathurradhy.mocinemas.net;
 
-import com.example.fathurradhy.mocinemas.utils.SupportVariable;
+import com.example.fathurradhy.mocinemas.BuildConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -27,7 +27,7 @@ public class Config {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .client(client)
-                .baseUrl(SupportVariable.ENDPOINT)
+                .baseUrl(BuildConfig.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
