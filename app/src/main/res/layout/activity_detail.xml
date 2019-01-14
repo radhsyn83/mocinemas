@@ -134,7 +134,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:tint="@color/color_warning"
-                            android:src="@drawable/ic_star_black_24dp"
+                            android:src="@drawable/ic_star_full"
                             android:contentDescription="@string/icon" />
                         <TextView
                             android:id="@+id/tv_rating"

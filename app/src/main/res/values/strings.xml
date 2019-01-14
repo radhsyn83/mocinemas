@@ -15,4 +15,7 @@
     <string name="icon">Icon</string>
 
     <string name="duration">%1$s min</string>
+    <string name="favorite_empty">No favorite movies yet</string>
+    <string name="favorite">Favorite</string>
+    <string name="please_wait">Please wait until load success</string>
 </resources>

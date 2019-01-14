@@ -4,7 +4,7 @@
     android:id="@+id/swipeRefresh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ComingSoonActivity">
+    tools:context=".fragment.ComingSoonFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,6 +25,19 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/rl_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize_xmedium"
+                android:text="@string/favorite_empty"/>
+        </RelativeLayout>
     </LinearLayout>
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

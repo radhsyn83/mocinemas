@@ -1,10 +1,6 @@
 package com.example.fathurradhy.mocinemas.fragment;
 
 
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import butterknife.BindView;
-
 import android.util.Log;
 import android.widget.Toast;
 
@@ -19,7 +15,11 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
 
-public class ComingSoonActivity extends RecyclerFragment {
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import butterknife.BindView;
+
+public class ComingSoonFragment extends RecyclerFragment {
     @BindView(R.id.swipeRefresh)
     SwipeRefreshLayout mSwipeRefresh;
     @BindView(R.id.recyclerView)
@@ -27,11 +27,9 @@ public class ComingSoonActivity extends RecyclerFragment {
     @BindView(R.id.sm_layout)
     ShimmerFrameLayout mShimmer;
 
-    private MoviesAdapter mMoviesAdapter;
-
     @Override
     protected int setLayoutResource() {
-        return R.layout.fragment_favorite;
+        return R.layout.fragment_coming_soon;
     }
 
     @Override
@@ -51,15 +49,15 @@ public class ComingSoonActivity extends RecyclerFragment {
 
     @Override
     protected void onSwipeRefresh() {
-        loadPopular();
+        loadMovies();
     }
 
     @Override
     protected void onViewReady() {
-        loadPopular();
+        loadMovies();
     }
 
-    private void loadPopular() {
+    private void loadMovies() {
         showLoading(true);
 
         new MoviesImpls(getContext(), new DefaultView<MoviesModel>() {
@@ -78,8 +76,8 @@ public class ComingSoonActivity extends RecyclerFragment {
 
     private void setRecyclerView(List<MoviesModelResult> list) {
         showLoading(false);
-        mMoviesAdapter = new MoviesAdapter(getContext(), list);
-        mRecycleView.setAdapter(mMoviesAdapter);
+        MoviesAdapter mMoviesAdapter = new MoviesAdapter(getContext(), list);
+        this.mRecyclerView.setAdapter(mMoviesAdapter);
     }
 
 }

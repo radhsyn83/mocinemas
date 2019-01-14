@@ -11,4 +11,14 @@
     <string name="playing_now">Tayang Sekarang</string>
     <string name="coming_soon">Akan Datang</string>
     <string name="settings">Pengaturan</string>
+
+    <string name="poster">Poster</string>
+    <string name="img_background">img_background</string>
+    <string name="icon">Icon</string>
+
+    <string name="duration">%1$s menit</string>
+    <string name="favorite_empty">Belum ada film favorit</string>
+    <string name="favorite">Favorit</string>
+    <string name="please_wait">Mohon menunggu sampai berhasil meload</string>
+
 </resources>

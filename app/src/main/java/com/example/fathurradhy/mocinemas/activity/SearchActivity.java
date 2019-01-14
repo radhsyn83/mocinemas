@@ -1,9 +1,6 @@
 package com.example.fathurradhy.mocinemas.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -18,6 +15,10 @@ import com.example.fathurradhy.mocinemas.domain.view.DefaultView;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class SearchActivity extends AppCompatActivity {
     private RecyclerView mRecycleView;

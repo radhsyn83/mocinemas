@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.fathurradhy.mocinemas">
 
+    <permission android:name="com.example.fathurradhy.mocinemas.READ_DATABASE" android:protectionLevel="normal"/>
+    <permission android:name="com.example.fathurradhy.mocinemas.WRITE_DATABASE" android:protectionLevel="normal"/>
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -25,7 +27,13 @@
         <activity
             android:name=".activity.DetailActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.SearchActivity"></activity>
+        <activity android:name=".activity.SearchActivity" />
+        <provider
+            android:authorities="com.example.fathurradhy.mocinemas"
+            android:name=".provider.MovieProvider"
+            android:exported="true"
+            android:readPermission="com.example.fathurradhy.mocinemas.READ_DATABASE"
+            android:writePermission="com.example.fathurradhy.mocinemas.WRITE_DATABASE" />
     </application>
 
 </manifest>

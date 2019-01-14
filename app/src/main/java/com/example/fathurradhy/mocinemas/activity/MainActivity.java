@@ -8,7 +8,8 @@ import android.view.MenuItem;
 
 import com.example.fathurradhy.mocinemas.R;
 import com.example.fathurradhy.mocinemas.adapter.ViewPagerAdapter;
-import com.example.fathurradhy.mocinemas.fragment.ComingSoonActivity;
+import com.example.fathurradhy.mocinemas.fragment.ComingSoonFragment;
+import com.example.fathurradhy.mocinemas.fragment.FavoriteFragment;
 import com.example.fathurradhy.mocinemas.fragment.NowPlayingFragment;
 import com.example.fathurradhy.mocinemas.utils.BottomNavigationHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity{
                 case R.id.action_coming_soon:
                     mViewPager.setCurrentItem(1);
                     return true;
+                case R.id.action_favorite:
+                    mViewPager.setCurrentItem(2);
+                    return true;
             }
             return false;
         });
@@ -73,9 +77,11 @@ public class MainActivity extends AppCompatActivity{
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         NowPlayingFragment nowPlaying = new NowPlayingFragment();
-        ComingSoonActivity comingSoon = new ComingSoonActivity();
+        ComingSoonFragment comingSoon = new ComingSoonFragment();
+        FavoriteFragment favoriteFragment = new FavoriteFragment();
         mViewPagerAdapter.addFragment(nowPlaying);
         mViewPagerAdapter.addFragment(comingSoon);
+        mViewPagerAdapter.addFragment(favoriteFragment);
         viewPager.setAdapter(mViewPagerAdapter);
     }
 

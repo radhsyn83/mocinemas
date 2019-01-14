@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 
 public abstract class RecyclerFragment extends Fragment {
     Context mContext;
-    RecyclerView mRecycleView;
+    RecyclerView mRecyclerView;
     ShimmerFrameLayout mShimmer;
     SwipeRefreshLayout mSwipeRefresh;
     View root;
@@ -44,12 +44,12 @@ public abstract class RecyclerFragment extends Fragment {
 
         if (setSwipeRefreshLayout() != null) {
             mSwipeRefresh = setSwipeRefreshLayout();
-            mSwipeRefresh.setOnRefreshListener(() -> onSwipeRefresh());
+            mSwipeRefresh.setOnRefreshListener(this::onSwipeRefresh);
         }
 
         if (setRecyclerViewLayout() != null) {
-            mRecycleView = setRecyclerViewLayout();
-            mRecycleView.setLayoutManager(new GridLayoutManager(getContext(), 2, RecyclerView.VERTICAL, false));
+            mRecyclerView = setRecyclerViewLayout();
+            mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, RecyclerView.VERTICAL, false));
         }
 
         onViewReady();
@@ -67,11 +67,11 @@ public abstract class RecyclerFragment extends Fragment {
         if (isShow) {
             mShimmer.startShimmer();
             mShimmer.setVisibility(View.VISIBLE);
-            mRecycleView.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.GONE);
         } else {
             mShimmer.stopShimmer();
             mShimmer.setVisibility(View.GONE);
-            mRecycleView.setVisibility(View.VISIBLE);
+            mRecyclerView.setVisibility(View.VISIBLE);
             mSwipeRefresh.setRefreshing(false);
         }
     }
