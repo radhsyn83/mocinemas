@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="radius_xmedium">4dp</dimen>
+    <dimen name="radius_medium">8dp</dimen>
+
+    <dimen name="padding_medium">10dp</dimen>
+    <dimen name="padding_large">20dp</dimen>
+
+    <dimen name="margin_xxsmall">2dp</dimen>
+    <dimen name="margin_xsmall">4dp</dimen>
+    <dimen name="margin_small">6dp</dimen>
+    <dimen name="margin_xmedium">8dp</dimen>
+    <dimen name="margin_medium">10dp</dimen>
+    <dimen name="margin_lmedium">12dp</dimen>
+    <dimen name="margin_vlarger">32dp</dimen>
+
+    <dimen name="textsize_xsmall">10sp</dimen>
+    <dimen name="textsize_small">12sp</dimen>
+    <dimen name="textsize_xmedium">16sp</dimen>
+</resources>

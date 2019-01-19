@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.example.fathurradhy.mocinemas.BuildConfig;
 import com.example.fathurradhy.mocinemas.R;
 import com.example.fathurradhy.mocinemas.activity.DetailActivity;
-import com.example.fathurradhy.mocinemas.database.Movie;
+import com.example.fathurradhy.mocinemas.utils.db.Movie;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,7 +31,7 @@ public class FavoritAdapter extends RecyclerView.Adapter<FavoritAdapter.ViewHold
     @NonNull
     @Override
     public FavoritAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_popular, viewGroup, false);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_movie, viewGroup, false);
         return new ViewHolder(v);
     }
 

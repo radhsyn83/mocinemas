@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Mofavorite</string>
+    <string name="rating">Rating</string>
+    <string name="poster">poster</string>
+    <string name="delete">delete</string>
+    <string name="are_you_sure">Are you sure ?</string>
+    <string name="coution">Delete item</string>
+    <string name="delete_success">Berhasil menghapus favorit</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+</resources>

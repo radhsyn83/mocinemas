@@ -2,7 +2,7 @@ package com.example.fathurradhy.mocinemas.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,6 +12,8 @@ import com.example.fathurradhy.mocinemas.fragment.ComingSoonFragment;
 import com.example.fathurradhy.mocinemas.fragment.FavoriteFragment;
 import com.example.fathurradhy.mocinemas.fragment.NowPlayingFragment;
 import com.example.fathurradhy.mocinemas.utils.BottomNavigationHelper;
+import com.example.fathurradhy.mocinemas.utils.UserPreferance;
+import com.example.fathurradhy.mocinemas.utils.reminder.AlarmReceiver;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -22,13 +24,27 @@ import androidx.viewpager.widget.ViewPager;
 public class MainActivity extends AppCompatActivity{
     private MaterialSearchView mSearchView;
     private ViewPager mViewPager;
+    private UserPreferance mUserPreferance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+            mUserPreferance = new UserPreferance(PreferenceManager.getDefaultSharedPreferences(this));
 
-        init();
+            init();
+            setDailyReminder();
+    }
+
+    private void setDailyReminder() {
+        if (mUserPreferance.getReminderStatus()) {
+            if (mUserPreferance.getFirstInstall()) {
+                new AlarmReceiver().setRepeatingAlarm(this);
+                mUserPreferance.setFirstIntsall();
+            }
+        } else {
+            new AlarmReceiver().cancelAlarm(this);
+        }
     }
 
     private void init() {
@@ -100,8 +116,8 @@ public class MainActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_language){
-            Intent mIntent = new Intent(Settings.ACTION_LOCALE_SETTINGS);
-            startActivity(mIntent);
+            Intent i = new Intent(this, SettingActivity.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);

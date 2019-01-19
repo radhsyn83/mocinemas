@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,41 +16,39 @@ import butterknife.ButterKnife;
 
 public abstract class RecyclerFragment extends Fragment {
     Context mContext;
-    RecyclerView mRecyclerView;
-    ShimmerFrameLayout mShimmer;
-    SwipeRefreshLayout mSwipeRefresh;
-    View root;
+    private RecyclerView mRecyclerView;
+    private ShimmerFrameLayout mShimmer;
+    private SwipeRefreshLayout mSwipeRefresh;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        root = inflater.inflate(setLayoutResource(), container, false);
-        ButterKnife.bind(this, root);
+        View root = null;
 
-        mContext = getActivity();
+        if  (savedInstanceState == null) {
+            root = inflater.inflate(setLayoutResource(), container, false);
+            ButterKnife.bind(this, root);
+
+            mContext = getActivity();
+
+            if (setShimmerLayout() != null) {
+                mShimmer = setShimmerLayout();
+            }
+
+            if (setSwipeRefreshLayout() != null) {
+                mSwipeRefresh = setSwipeRefreshLayout();
+                mSwipeRefresh.setOnRefreshListener(this::onSwipeRefresh);
+            }
+
+            if (setRecyclerViewLayout() != null) {
+                mRecyclerView = setRecyclerViewLayout();
+                mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, RecyclerView.VERTICAL, false));
+            }
+
+            onViewReady();
+        }
 
         return root;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        if (setShimmerLayout() != null) {
-            mShimmer = setShimmerLayout();
-        }
-
-        if (setSwipeRefreshLayout() != null) {
-            mSwipeRefresh = setSwipeRefreshLayout();
-            mSwipeRefresh.setOnRefreshListener(this::onSwipeRefresh);
-        }
-
-        if (setRecyclerViewLayout() != null) {
-            mRecyclerView = setRecyclerViewLayout();
-            mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2, RecyclerView.VERTICAL, false));
-        }
-
-        onViewReady();
     }
 
     protected abstract int setLayoutResource();

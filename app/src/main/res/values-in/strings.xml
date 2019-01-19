@@ -4,7 +4,6 @@
     <string name="something_went_wrong">Terjadi gangguan, coba lagi</string>
     <string name="rto">Waktu permintaan habis</string>
     <string name="no_internet">Tidak ada internet</string>
-    <string name="menu_search">Cari</string>
     <string name="rating">Rating: </string>
 
     <string name="overview">Deskripsi</string>
@@ -20,5 +19,13 @@
     <string name="favorite_empty">Belum ada film favorit</string>
     <string name="favorite">Favorit</string>
     <string name="please_wait">Mohon menunggu sampai berhasil meload</string>
+    <string name="image">iImage</string>
+
+    <string name="reminder_mesage">Hey, silahkan cek app ini</string>
+    <string name="released_now">Sudah rilis, cek sekarang</string>
+    <string name="notifikasi">Notifikasi</string>
+    <string name="notifikasi_text">On/off notifikasi pengingat</string>
+    <string name="language">Bahasa</string>
+    <string name="language_text">Ganti Bahasa</string>
 
 </resources>

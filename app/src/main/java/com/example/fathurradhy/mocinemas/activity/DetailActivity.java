@@ -2,7 +2,6 @@
 package com.example.fathurradhy.mocinemas.activity;
 
 import android.content.ContentValues;
-import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,12 +19,11 @@ import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.fathurradhy.mocinemas.BuildConfig;
 import com.example.fathurradhy.mocinemas.R;
-import com.example.fathurradhy.mocinemas.database.DatabaseContract;
-import com.example.fathurradhy.mocinemas.database.Movie;
-import com.example.fathurradhy.mocinemas.database.MovieHelper;
 import com.example.fathurradhy.mocinemas.domain.model.detail.DetailModel;
 import com.example.fathurradhy.mocinemas.domain.presenter.DetailImpls;
 import com.example.fathurradhy.mocinemas.domain.view.DefaultView;
+import com.example.fathurradhy.mocinemas.utils.db.DatabaseContract;
+import com.example.fathurradhy.mocinemas.utils.db.MovieHelper;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.text.DateFormat;
@@ -38,14 +36,13 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 
 import static android.provider.BaseColumns._ID;
-import static com.example.fathurradhy.mocinemas.database.DatabaseContract.CONTENT_URI;
+import static com.example.fathurradhy.mocinemas.utils.db.DatabaseContract.CONTENT_URI;
 
 public class DetailActivity extends AppCompatActivity {
     private ShimmerFrameLayout mShimmer;
     private MovieHelper mMovieHelper;
     private DetailModel movieData;
     private MenuItem menuFavorite;
-    private Movie movie;
 
     private Boolean isReady = false;
     private Boolean isFavorite = true;
@@ -159,7 +156,8 @@ public class DetailActivity extends AppCompatActivity {
     private void setFavorite() {
         if (isReady) {
             if (isFavorite) {
-                getContentResolver().delete(CONTENT_URI, _ID + "=" +id,null);
+                Uri uri = Uri.parse(CONTENT_URI+"/"+id);
+                getContentResolver().delete(uri, null, null);
                 getFavorite();
             } else {
                 String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());

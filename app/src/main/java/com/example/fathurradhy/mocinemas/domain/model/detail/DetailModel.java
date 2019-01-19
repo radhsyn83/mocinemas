@@ -19,19 +19,12 @@ public class DetailModel {
     private
     String title;
 
-    @SerializedName("status")
-    @Expose
-    private
-    String status;
-
     @SerializedName("runtime")
     @Expose
-    private
     String runtime;
 
     @SerializedName("overview")
     @Expose
-    private
     String overview;
 
     @SerializedName("genres")
@@ -54,28 +47,12 @@ public class DetailModel {
         this.title = title;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(String runtime) {
-        this.runtime = runtime;
-    }
-
     public String getOverview() {
         return overview;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
     }
 
     public List<DetailModelGenre> getGenres() {

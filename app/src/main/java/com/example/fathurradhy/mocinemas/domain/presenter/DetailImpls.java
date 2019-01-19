@@ -5,7 +5,7 @@ import android.content.Context;
 import com.example.fathurradhy.mocinemas.R;
 import com.example.fathurradhy.mocinemas.domain.model.detail.DetailModel;
 import com.example.fathurradhy.mocinemas.domain.view.DefaultView;
-import com.example.fathurradhy.mocinemas.net.Config;
+import com.example.fathurradhy.mocinemas.utils.net.Config;
 
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;

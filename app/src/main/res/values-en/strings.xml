@@ -4,7 +4,6 @@
     <string name="something_went_wrong">Something went wrong, try again</string>
     <string name="rto">Request time out</string>
     <string name="no_internet">No internet detected</string>
-    <string name="menu_search">Search</string>
     <string name="rating">Rating: </string>
 
     <string name="overview">Overview</string>
@@ -20,5 +19,13 @@
     <string name="favorite_empty">No favorite movies yet</string>
     <string name="favorite">Favorite</string>
     <string name="please_wait">Please wait until load success</string>
+    <string name="image">iImage</string>
+
+    <string name="reminder_mesage">Hey, you check me up!</string>
+    <string name="released_now">Released now, check it!</string>
+    <string name="notifikasi">Notification</string>
+    <string name="notifikasi_text">On/off notification reminder</string>
+    <string name="language">Language</string>
+    <string name="language_text">Change language</string>
 
 </resources>
